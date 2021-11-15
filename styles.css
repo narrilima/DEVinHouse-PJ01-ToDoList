@@ -1,0 +1,127 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(#c22cc4, #71d3da);
+}
+
+h1 {
+  text-align: center;
+  text-shadow: 2px 2px 8px #75c1ff;
+  font-size: 4.5rem;
+  font-family: 'Cookie', cursive;
+  color: #e8f3f8;
+}
+
+/* botão que add a tarefa*/
+ .adiciona-tarefa {
+  background-color: transparent;
+  color: rgb(250, 250, 250);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 0px;
+  font-size: 30px;
+}
+
+/* hover do botão que add a tarefa*/
+:hover.adiciona-tarefa {
+  color: rgb(86, 235, 136);
+  transition-duration: 0.4s;
+
+}
+
+.tarefas{
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  padding: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.input-tarefa {
+  width: 300px;
+  border-style: solid ;
+  border-radius: 5px;
+  border-color: #c22cc4;
+  outline: none;
+  padding: 3px;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+.lista-tarefas {
+  width: 350px;
+  margin: 0 auto 30px;
+}
+
+.item {
+  background-color: #fff;
+  padding: 10px;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.item:first-child {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.item:last-child {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.checked.item {
+  text-decoration: line-through;
+}
+
+.delete-button {
+  color: #ddd6dd;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin-left: auto;
+  width: 20px;
+  font-size: 20px;
+  font-weight: 550;
+  height: 20px;
+}
+
+:hover.delete-button {
+  cursor: pointer;
+  color: #f13876;
+  transition-duration: 0.4s;
+}
+
+footer{
+  margin: 0;
+  color: aliceblue;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  color: #ffffff;
+  font-size: 80px ;
+}
