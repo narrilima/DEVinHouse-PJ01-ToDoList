@@ -24,10 +24,10 @@ function adicionaTarefa(item) {
   }
 }
 
-function deletarTarefas(tarefaDeletada) {
+function renderizarTarefas(tarefaRenderizada) {
   listaTarefas.innerHTML = '';
 
-  tarefaDeletada.forEach(function(item) {
+  tarefaRenderizada.forEach(function(item) {
     const tarefaCompleta = item.completed ? 'checked': null;
 
     const li = document.createElement('li');
@@ -50,14 +50,14 @@ function deletarTarefas(tarefaDeletada) {
 
 function addToLocalStorage(tarefaLocal) {
   localStorage.setItem('tarefas', JSON.stringify(tarefaLocal));
-  deletarTarefas(tarefaLocal);
+  renderizarTarefas(tarefaLocal);
 }
 
 function getFromLocalStorage() {
   const referencia = localStorage.getItem('tarefas');
   if (referencia) {
     tarefas = JSON.parse(referencia);
-    deletarTarefas(tarefas);
+    renderizarTarefas(tarefas);
   }
 }
 
@@ -72,11 +72,12 @@ function alternarStatus(id) {
 }
 
 function deletaTarefa(id) {
-  tarefas = tarefas.filter(function(item) {
-    return item.id != id;
-  });
-
-  addToLocalStorage(tarefas);
+  if (confirm("Deseja excluir a tarefa?")) {
+    tarefas = tarefas.filter(function(item) {
+      return item.id != id;
+    });
+    addToLocalStorage(tarefas);
+  }
 }
 
 getFromLocalStorage();
