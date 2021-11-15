@@ -41,7 +41,7 @@ function renderizarTarefas(tarefaRenderizada) {
     li.innerHTML = `
       <input type="checkbox" class="checkbox" ${tarefaCompleta}>
       ${item.name}
-      <button class="delete-button">X</button>
+      <button class="delete-button fas fa-trash"></button>
     `;
     listaTarefas.append(li);
   });
