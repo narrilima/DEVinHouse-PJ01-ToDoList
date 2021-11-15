@@ -16,12 +16,19 @@ body {
 h1 {
   text-align: center;
   text-shadow: 2px 2px 8px #75c1ff;
-  font-size: 4.5rem;
+  font-size: 5rem;
   font-family: 'Cookie', cursive;
   color: #e8f3f8;
 }
 
-/* botão que add a tarefa*/
+h2 {
+  text-align: center;
+  text-shadow: 2px 2px 8px #75c1ff;
+  font-size: 3.5rem;
+  font-family: 'Cookie', cursive;
+  color: #e8f3f8;
+}
+
  .adiciona-tarefa {
   background-color: transparent;
   color: rgb(250, 250, 250);
@@ -32,7 +39,6 @@ h1 {
   font-size: 30px;
 }
 
-/* hover do botão que add a tarefa*/
 :hover.adiciona-tarefa {
   color: rgb(86, 235, 136);
   transition-duration: 0.4s;
@@ -113,15 +119,17 @@ ul {
 }
 
 footer{
-  margin: 0;
+  margin-top: 30px;
   color: aliceblue;
   font-weight: bold;
   text-align: center;
-  font-size: 1rem;
+  text-shadow: 2px 2px 8px #ece2e7;
+  font-size: 0.74rem;
   font-family: 'Poppins', sans-serif;
 }
 
 a {
   color: #ffffff;
-  font-size: 80px ;
+  text-shadow: 2px 2px 8px #e1b0f8;
+  font-size: 60px ;
 }
