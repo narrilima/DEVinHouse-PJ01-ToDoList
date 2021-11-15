@@ -72,7 +72,7 @@ function alternarStatus(id) {
 }
 
 function deletaTarefa(id) {
-  if (confirm("Deseja excluir a tarefa?")) {
+  if (confirm("Você deseja realmente excluir a tarefa?")) {
     tarefas = tarefas.filter(function(item) {
       return item.id != id;
     });
