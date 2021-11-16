@@ -86,8 +86,8 @@ ul {
 
 :hover.item {
   background-color: rgb(239, 234, 253);
-  font-size: 0.95rem;
-  transition-duration: 0.4s;
+  font-size: 0.90rem;
+  transition-duration: 0.1s;
 }
 
 .item:first-child {
@@ -109,7 +109,6 @@ ul {
   font-style: italic;
   color: #777d7e;
   background-color: #b5eeeb;
-  transition-duration: 0ms;
 }
 
 .delete-button {
@@ -128,8 +127,8 @@ ul {
 :hover.delete-button {
   cursor: pointer;
   color: #f13876;
-  transition-duration: 0.5s;
-  font-size: 23px ;
+  transition-duration: 0.2s;
+  font-size: 22px ;
 }
 
 footer{
