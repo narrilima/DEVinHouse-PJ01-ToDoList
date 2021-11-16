@@ -35,14 +35,14 @@ h2 {
   border: none;
   outline: none;
   border-radius: 5px;
-  padding: 0px;
+  padding-top: 5px;
   font-size: 30px;
 }
 
 :hover.adiciona-tarefa {
-  color: rgb(86, 235, 136);
+  cursor: pointer;
+  color: #8af0d6;
   transition-duration: 0.4s;
-
 }
 
 .tarefas{
@@ -60,16 +60,18 @@ ul {
   width: 300px;
   border-style: solid ;
   border-radius: 5px;
-  border-color: #c22cc4;
+  border-color: #e47fe6;
   outline: none;
   padding: 3px;
   margin-right: 10px;
   font-size: 1rem;
+
 }
 
 .lista-tarefas {
-  width: 350px;
+  width: 345px;
   margin: 0 auto 30px;
+  text-transform: uppercase;
 }
 
 .item {
@@ -97,6 +99,9 @@ ul {
 
 .checked.item {
   text-decoration: line-through;
+  font-style: italic;
+  color: #777d7e;
+  background-color: #b5eeeb;
 }
 
 .delete-button {
