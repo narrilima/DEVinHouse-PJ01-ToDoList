@@ -1,36 +1,36 @@
-const formularioTarefas = document.querySelector(".formulario-tarefas");
-const inputTarefa = document.querySelector(".input-tarefa");
-const listaTarefas = document.querySelector(".lista-tarefas");
+const formTodos = document.querySelector(".form-todos");
+const inputTodo = document.querySelector(".input-todo");
+const listTodos = document.querySelector(".list-todos");
 
-let tarefas = [];
+let todos = [];
 
-function adicionaTarefa(item) {
+function addTodo(item) {
 	if (item !== "") {
-		const tarefa = {
+		const todo = {
 			id: Date.now(),
 			name: item,
 			completed: false,
 		};
 
-		tarefas.push(tarefa);
-		addToLocalStorage(tarefas);
+		todos.push(todo);
+		addToLocalStorage(todos);
 
-		inputTarefa.value = "";
+		inputTodo.value = "";
 	} else {
-		throw new Error(alert("Não é possível adicionar tarefas vazias."));
+		throw new Error(alert("It is not possible to add a blank to-do."));
 	}
 }
 
-formularioTarefas.addEventListener("submit", function (event) {
+formTodos.addEventListener("submit", function (event) {
 	event.preventDefault();
-	adicionaTarefa(inputTarefa.value);
+	addTodo(inputTodo.value);
 });
 
-function renderizarTarefas(tarefaRenderizada) {
-	listaTarefas.innerHTML = "";
+function renderTodos(renderedTodo) {
+	listTodos.innerHTML = "";
 
-	tarefaRenderizada.forEach(function (item) {
-		const tarefaCompleta = item.completed ? "checked" : null;
+	renderedTodo.forEach(function (item) {
+		const completedTodo = item.completed ? "checked" : null;
 
 		const li = document.createElement("li");
 		li.setAttribute("class", "item");
@@ -41,54 +41,54 @@ function renderizarTarefas(tarefaRenderizada) {
 		}
 
 		li.innerHTML = `
-      <input type="checkbox" class="checkbox" ${tarefaCompleta}>
+      <input type="checkbox" class="checkbox" ${completedTodo}>
       ${item.name}
       <button class="delete-button fas fa-trash"></button>
     `;
-		listaTarefas.append(li);
+		listTodos.append(li);
 	});
 }
 
-function addToLocalStorage(tarefaLocal) {
-	localStorage.setItem("tarefas", JSON.stringify(tarefaLocal));
-	renderizarTarefas(tarefaLocal);
+function addToLocalStorage(localTodo) {
+	localStorage.setItem("todos", JSON.stringify(localTodo));
+	renderTodos(localTodo);
 }
 
 function getFromLocalStorage() {
-	const referencia = localStorage.getItem("tarefas");
-	if (referencia) {
-		tarefas = JSON.parse(referencia);
-		renderizarTarefas(tarefas);
+	const reference = localStorage.getItem("todos");
+	if (reference) {
+		todos = JSON.parse(reference);
+		renderTodos(todos);
 	}
 }
 
-function alternarStatus(id) {
-	tarefas.forEach(function (item) {
+function toggleStatus(id) {
+	todos.forEach(function (item) {
 		if (item.id == id) {
 			item.completed = !item.completed;
 		}
 	});
 
-	addToLocalStorage(tarefas);
+	addToLocalStorage(todos);
 }
 
-function deletaTarefa(id) {
-	if (confirm("Você deseja realmente excluir a tarefa?")) {
-		tarefas = tarefas.filter(function (item) {
+function deleteTodo(id) {
+	if (confirm("Do you really want to delete the to-do?")) {
+		todos = todos.filter(function (item) {
 			return item.id != id;
 		});
-		addToLocalStorage(tarefas);
+		addToLocalStorage(todos);
 	}
 }
 
 getFromLocalStorage();
 
-listaTarefas.addEventListener("click", function (event) {
+listTodos.addEventListener("click", function (event) {
 	if (event.target.type === "checkbox") {
-		alternarStatus(event.target.parentElement.getAttribute("data-key"));
+		toggleStatus(event.target.parentElement.getAttribute("data-key"));
 	}
 
 	if (event.target.classList.contains("delete-button")) {
-		deletaTarefa(event.target.parentElement.getAttribute("data-key"));
+		deleteTodo(event.target.parentElement.getAttribute("data-key"));
 	}
 });
